@@ -10,7 +10,12 @@ import java.util.concurrent.TimeUnit;
 
 public class InstaciarDrive {
 
+
     protected static WebDriver driver;
+
+    public static WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeClass
     public static void inicializarMetodo() {

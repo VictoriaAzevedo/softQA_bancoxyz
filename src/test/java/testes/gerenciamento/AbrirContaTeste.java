@@ -18,10 +18,7 @@ public class AbrirContaTeste extends InstaciarDrive {
         abrirConta.selecionarCliente("Hermoine Granger");
         abrirConta.selecionarMoeda("Dollar");
         abrirConta.clicarBotaoEnviar();
-
-
-
-        //Assert.assertEquals();
+        Assert.assertEquals("Account created successfully with account Number ", abrirConta.retornarMensagemSucesso());
     }
 
 

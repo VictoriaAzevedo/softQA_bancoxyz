@@ -1,8 +1,11 @@
 package interacao.gerenciamento;
 
+import org.openqa.selenium.Alert;
 import paginas.gerenciamento.CadastroClientePagina;
+import utils.InstaciarDrive;
 
 public class CadastroClienteInteracao extends CadastroClientePagina {
+
 
     public void clicarGerenciamentoLogin(){
         botaoGerenciamentoLogin.click();
@@ -27,4 +30,13 @@ public class CadastroClienteInteracao extends CadastroClientePagina {
     public void salvarCadastro(){
         botãoSalvar.click();
     }
+
+    public String retornarMensagemAlerta(){
+        Alert alerta = InstaciarDrive.getDriver().switchTo().alert();
+        String[] mensagemAlerta = alerta.getText().split(":");
+        alerta.accept();
+        return mensagemAlerta[0];
+    }
+
+
 }
