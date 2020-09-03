@@ -14,8 +14,8 @@ public class DepositarContaTeste extends InstaciarDrive {
     DepositarContaInteracao depositarConta = PageFactory.initElements(driver, DepositarContaInteracao.class);
 
     @Before
-    public void incializarTestes(){
-        clienteUtils.logarConta();
+    public void incializar(){
+        clienteUtils.logarContaClienteFixo();
         depositarConta.clicarDeposito();
     }
 
@@ -23,27 +23,24 @@ public class DepositarContaTeste extends InstaciarDrive {
     public void depositarContaSucesso(){
         depositarConta.informarValorDeposito(clienteUtils.gerarValorDeposito());
         depositarConta.clicarRealizarDeposito();
-
         Assert.assertEquals("Deposit Successful", depositarConta.mensagemDepositoSucesso());
     }
 
     @Test
     public void verificarValorDepositadoConta(){
         String valorDepositar = clienteUtils.gerarValorDeposito();
-        int saldoAtual = clienteUtils.verificarSaldoTotal();
+        int saldoAtual = clienteUtils.verificarSaldoTotalAtual();
         depositarConta.informarValorDeposito(valorDepositar);
         depositarConta.clicarRealizarDeposito();
-
-        Assert.assertEquals(clienteUtils.valorSaldoAtualizadoDeposito(valorDepositar, saldoAtual), Integer.toString(clienteUtils.verificarSaldoTotal()));
+        Assert.assertEquals(clienteUtils.valorSaldoAtualizadoDeposito(valorDepositar, saldoAtual), Integer.toString(clienteUtils.verificarSaldoTotalAtual()));
     }
 
     @Test
     public void depositarValorNegativo(){
-        int saldoAtual = clienteUtils.verificarSaldoTotal();
+        int saldoAtual = clienteUtils.verificarSaldoTotalAtual();
         depositarConta.informarValorDeposito("-1");
         depositarConta.clicarRealizarDeposito();
-
-        Assert.assertEquals(Integer.toString(saldoAtual), Integer.toString(clienteUtils.verificarSaldoTotal()));
+        Assert.assertEquals(Integer.toString(saldoAtual), Integer.toString(clienteUtils.verificarSaldoTotalAtual()));
     }
 
 }

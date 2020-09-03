@@ -21,9 +21,6 @@ public class InstaciarDrive {
     public static void inicializarMetodo() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("http://www.way2automation.com/angularjs-protractor/banking/#/login");
-        driver.manage().window().maximize();
-
     }
 
     @After
@@ -33,6 +30,5 @@ public class InstaciarDrive {
 
     public void esperarSegundos(){
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
-
     }
 }

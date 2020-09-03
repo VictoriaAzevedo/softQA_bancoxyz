@@ -19,8 +19,6 @@ public class ExcluirCadastroTeste extends InstaciarDrive {
         excluirCadastro.buscarClienteNome("Harry");
         excluirCadastro.clicarBotaoExcluir();
 
-
-        //Assert.assertEquals();
     }
 
 }

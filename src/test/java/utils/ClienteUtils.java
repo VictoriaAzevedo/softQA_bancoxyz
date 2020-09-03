@@ -13,36 +13,35 @@ public class ClienteUtils extends InstaciarDrive{
     LogarClienteInteracao loginCliente = PageFactory.initElements(driver, LogarClienteInteracao.class);
     ClienteGeralInteracao cliente = PageFactory.initElements(driver, ClienteGeralInteracao.class);
 
-   //public void logarConta(){
-   //    loginCliente.clicarLoginCliente();
-   //    esperarSegundos();
-   //    loginCliente.selecionarNomeCliente(nomeClientes());
-   //    loginCliente.clicarLogin();
-   //}
+   public void logarContaClienteRandomico(){
+       loginCliente.clicarLoginCliente();
+       esperarSegundos();
+       loginCliente.selecionarNomeCliente(nomeClientes());
+       loginCliente.clicarLogin();
+   }
 
-    public void logarConta(){
+    public void logarContaClienteFixo(){
         loginCliente.clicarLoginCliente();
         esperarSegundos();
         loginCliente.selecionarNomeCliente("Hermoine Granger");
         loginCliente.clicarLogin();
     }
 
-    public int verificarSaldoTotal(){
+    public int verificarSaldoTotalAtual(){
         String informacao = cliente.informacoesConta(1);
         String [] st = informacao.split(":");
         return Integer.parseInt(st[1].trim());
-
     }
 
     public String gerarValorSaqueMenorSaldo(){
         Random random = new Random();
-        int valorMaximo = verificarSaldoTotal();
+        int valorMaximo = verificarSaldoTotalAtual();
         int valorSaque = (int)(random.nextInt(valorMaximo - 1)+1);
         return Integer.toString(valorSaque);
     }
 
     public String gerarValorSaqueMaiorSaldo(){
-        int valorMaximo = verificarSaldoTotal();
+        int valorMaximo = verificarSaldoTotalAtual();
         int valorSaque = valorMaximo + 1;
         return Integer.toString(valorSaque);
     }
@@ -73,6 +72,5 @@ public class ClienteUtils extends InstaciarDrive{
 
         return Integer.toString(saldoAtual - valor);
     }
-
 
 }

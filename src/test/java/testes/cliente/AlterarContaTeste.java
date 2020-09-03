@@ -14,7 +14,7 @@ public class AlterarContaTeste extends InstaciarDrive {
 
     @Test
     public void alterarContaSucesso(){
-        clienteUtils.logarConta();
+        clienteUtils.logarContaClienteFixo();
         alterarConta.selecionarConta("1002");
 
         Assert.assertEquals("Account Number : 1002 ", alterarConta.numeroContaSelecionada());

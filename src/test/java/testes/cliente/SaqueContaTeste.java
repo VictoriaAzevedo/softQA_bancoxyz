@@ -15,40 +15,31 @@ public class SaqueContaTeste extends InstaciarDrive {
 
     @Before
     public void inicializar(){
-        clienteUtils.logarConta();
+        clienteUtils.logarContaClienteFixo();
         saqueConta.clicarSaque();
     }
 
     @Test
     public void sacarValorPermitido(){
-
         saqueConta.informarValorSaque(clienteUtils.gerarValorSaqueMenorSaldo());
         saqueConta.clicarRealizarSaque();
-
         Assert.assertEquals("Transaction successful", saqueConta.retornarMensagem());
-
     }
 
     @Test
     public void verificarSaldoAposSaque(){
-
-        int saldoAtual = clienteUtils.verificarSaldoTotal();
+        int saldoAtual = clienteUtils.verificarSaldoTotalAtual();
         String valorSaque = clienteUtils.gerarValorSaqueMenorSaldo();
         saqueConta.informarValorSaque(valorSaque);
         saqueConta.clicarRealizarSaque();
-
-        Assert.assertEquals(clienteUtils.valorSaldoAtualizadoSaque(valorSaque, saldoAtual), Integer.toString(clienteUtils.verificarSaldoTotal()));
-
+        Assert.assertEquals(clienteUtils.valorSaldoAtualizadoSaque(valorSaque, saldoAtual), Integer.toString(clienteUtils.verificarSaldoTotalAtual()));
     }
 
     @Test
     public void sacarValorAcimaSaldo(){
-
         saqueConta.informarValorSaque(clienteUtils.gerarValorSaqueMaiorSaldo());
         saqueConta.clicarRealizarSaque();
-
         Assert.assertEquals("Transaction Failed. You can not withdraw amount more than the balance.", saqueConta.retornarMensagem());
-
     }
 
 

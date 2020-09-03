@@ -14,7 +14,7 @@ public class LogoutClienteTeste extends InstaciarDrive {
 
     @Test
     public void realizarLogoutSucesso(){
-        clienteUtils.logarConta();
+        clienteUtils.logarContaClienteFixo();
         logoutConta.clicarBotaoLogout();
 
         Assert.assertEquals("Your Name :", logoutConta.tituloPaginainicial());

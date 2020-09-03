@@ -13,13 +13,13 @@ public class HistoricoMovimentacoesTeste extends InstaciarDrive {
     ClienteUtils clienteUtils = new ClienteUtils();
 
     @Test
-    public void excluirMovimentacoes(){
-        clienteUtils.logarConta();
+    public void excluirMovimentacoesVerificarSaldoTotal(){
+        clienteUtils.logarContaClienteFixo();
         historicoMovimentacoes.clicarBotaoTransacoes();
         historicoMovimentacoes.clicarBotaoReset();
         historicoMovimentacoes.clicarBotaoVoltar();
 
-        Assert.assertEquals("0", Integer.toString(clienteUtils.verificarSaldoTotal()));
+        Assert.assertEquals("0", Integer.toString(clienteUtils.verificarSaldoTotalAtual()));
 
     }
 }
