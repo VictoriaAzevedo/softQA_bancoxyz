@@ -1,6 +1,22 @@
 # softQA_bancoxyz
 
-<h2><b>Gerenciamento Banco - Cenários verificados</b></h2><br>
+<b>SOBRE</b></br>
+Projeto de automação de testes com Selenium em uma aplicação Angularjs de simulação de banco: http://www.way2automation.com/angularjs-protractor/banking/#/login</br>
+</br>
+<b>CONFIRGURAÇÕES DE AMBIENTE</b></br>
+maven.compiler.source: 1.7</br>
+maven.compiler.target: 1.7</br>
+</br>
+Dependências:</br>
+Junit versão 4.11</br>
+Selenium-java versão 3.14.0</br>
+Web driver manager (io.github.bonigarcia) versão 4.2.0
+</br>
+
+
+<h1><b> - Cenários verificados - </b></h1><br>
+
+<h2><b>Gerenciamento Banco</b></h2><br>
 
 <b>Cadastrar novo cliente</b><br>
 <b>DADO</b> administrador deve fazer novo cadastro de cliente<br>
@@ -20,7 +36,7 @@
 <b>ENTÃO</b> sistema deve gerar um número de conta nova para o cliente.
 <br>
 
-<h2><b>Acesso cliente - Cenários verificados</b></h2><br>
+<h2><b>Acesso cliente</b></h2><br>
 
 <b>Login do cliente</b><br>
 <b>DADO</b> cliente seja cadastrado quer fazer login<br>
