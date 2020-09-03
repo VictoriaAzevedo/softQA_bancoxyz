@@ -21,6 +21,7 @@ public class DepositarContaTeste extends InstaciarDrive {
 
     @Test
     public void depositarContaSucesso(){
+        clienteUtils.esperarSegundos();
         depositarConta.informarValorDeposito(clienteUtils.gerarValorDeposito());
         depositarConta.clicarRealizarDeposito();
         Assert.assertEquals("Deposit Successful", depositarConta.mensagemDepositoSucesso());
